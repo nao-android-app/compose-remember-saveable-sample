@@ -1,0 +1,2 @@
+# compose-remember-saveable-sample
+Jetpack ComposeのrememberとrememberSaveableの状態保持の違いを検証するサンプルアプリです。画面回転時の挙動を比較し、状態復元の仕組みを確認します。
