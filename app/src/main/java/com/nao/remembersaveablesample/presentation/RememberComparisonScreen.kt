@@ -3,9 +3,7 @@ package com.nao.remembersaveablesample.presentation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -22,8 +20,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.nao.remembersaveablesample.R
 import com.nao.remembersaveablesample.ui.theme.RememberSaveableSampleTheme
 
 @Composable
@@ -37,7 +37,7 @@ fun RememberComparisonScreen(
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         Text(
-            text = "remember vs rememberSaveable",
+            text = stringResource(R.string.remember_comparison_title),
             style = MaterialTheme.typography.headlineSmall
         )
         RememberSection()
@@ -56,7 +56,7 @@ private fun RememberSection() {
     }
 
     SampleCard(
-        title = "remember",
+        title = stringResource(R.string.remember_title),
         count = count,
         text = text,
         onCountClick = {
@@ -83,7 +83,7 @@ private fun RememberSaveableSection() {
     }
 
     SampleCard(
-        title = "rememberSaveable",
+        title = stringResource(R.string.remember_saveable_title),
         count = count,
         text = text,
         onCountClick = {
@@ -125,11 +125,16 @@ private fun SampleCard(
                 value = text,
                 onValueChange = onTextChange,
                 label = {
-                    Text("Text State")
+                    Text(stringResource(R.string.text_state_label))
                 }
             )
 
-            Text("Count: $count")
+            Text(
+                text = stringResource(
+                    R.string.count,
+                    count
+                )
+            )
 
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -143,7 +148,7 @@ private fun SampleCard(
                 Button(
                     onClick = onClearClick
                 ) {
-                    Text("Reset State")
+                    Text(stringResource(R.string.reset_state_label))
                 }
             }
         }
